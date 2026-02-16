@@ -1,0 +1,72 @@
+# Copyright (C) 2026 secretlab48
+# This file is distributed under the GPLv2.
+msgid ""
+msgstr ""
+"Project-Id-Version: Taxonomy Terms Counter 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/taxonomy-terms-counter\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-02-16T09:35:21+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: taxonomy-terms-counter\n"
+
+#. Plugin Name of the plugin
+#: taxonomy-terms-counter.php
+#: includes/admin-page.php:14
+#: includes/admin-page.php:15
+msgid "Taxonomy Terms Counter"
+msgstr ""
+
+#. Description of the plugin
+#: taxonomy-terms-counter.php
+msgid "Show taxonomy term counts in the Gutenberg editor sidebar and manage which taxonomies display counts."
+msgstr ""
+
+#. Author of the plugin
+#: taxonomy-terms-counter.php
+msgid "secretlab48"
+msgstr ""
+
+#: includes/admin-page.php:29
+msgid "Taxonomy Terms Counter Settings"
+msgstr ""
+
+#: includes/rest-api.php:64
+msgid "Invalid payload"
+msgstr ""
+
+#: taxonomy-terms-counter.php:71
+msgid "Settings"
+msgstr ""
+
+#: src/index.jsx:108
+msgid "Post types"
+msgstr ""
+
+#: src/index.jsx:138
+msgid "post-type taxonomies where term counts are shown"
+msgstr ""
+
+#: src/index.jsx:159
+msgid "show_in_rest = false"
+msgstr ""
+
+#: src/index.jsx:195
+msgid "Save"
+msgstr ""
+
+#: src/index.jsx:201
+msgid "No taxonomies for this post type"
+msgstr ""
+
+#: src/index.jsx:211
+msgid "Settings saved"
+msgstr ""
+
+#: src/index.jsx:215
+msgid "Save failed"
+msgstr ""

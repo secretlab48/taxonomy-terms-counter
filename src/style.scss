@@ -1,0 +1,146 @@
+.ttcounter-layout {
+	display: flex;
+	min-height: 75vh;
+
+	.ttcounter-sidebar {
+		width: 240px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
+		border-right: 1px solid #ccd0d4;
+		padding: 10px;
+		background: #f6f7f7;
+
+		.ttcounter-sidebar-title {
+			width: 100%;
+			padding: 0 0 10px 0;
+			margin: 0;
+			border-bottom: 1px solid #ccd0d4;
+			font-size: 14px;
+			font-weight: 600;
+			color: #1d2327;
+		}
+
+		div {
+			padding: 6px 10px;
+			cursor: pointer;
+			border: 1px solid #ccd0d4;
+			border-radius: 4px;
+			text-transform: uppercase;
+
+			&:hover {
+				background: #e5e7ea;
+			}
+
+			&.active {
+				background: #2271b1;
+				color: #fff;
+			}
+		}
+	}
+
+	.ttcounter-main {
+		padding: 10px;
+
+		.ttcounter-taxonomies-title {
+			width: 100%;
+			padding: 0 0 10px 0;
+			margin: 0 0 8px;
+			border-bottom: 1px solid #ccd0d4;
+			font-size: 14px;
+			font-weight: 600;
+			color: #1d2327;
+
+			span {
+				text-transform: uppercase;
+			}
+		}
+
+		.ttcounter-box {
+			border: 1px solid #ccd0d4;
+			padding: 10px;
+			border-radius: 4px;
+			background: #fff;
+
+			&.disabled {
+				opacity: 0.5;
+			}
+		}
+	}
+}
+
+.ttcounter-taxonomies {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.ttcounter-actions {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.ttcounter-save-result {
+	animation: ttcounter-fade-in 0.25s ease forwards;
+
+	&.success {
+		color: #008a20;
+	}
+
+	&.error {
+		color: #d63638;
+	}
+}
+
+.ttcounter-save-btn.button.button-primary {
+	position: relative;
+	min-width: 120px;
+	height: 36px;
+	padding: 0 12px;
+	background: #2271b1;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+
+	&:disabled {
+		opacity: 1;
+		cursor: default;
+		background: #2271b1 !important;
+		color: #fff !important;
+	}
+
+	.ttcounter-spinner {
+		position: absolute;
+		top: 50%;
+		right: 8px;
+		width: 12px;
+		height: 12px;
+		border: 2px solid rgba(255, 255, 255, 0.4);
+		border-top-color: #fff;
+		border-radius: 50%;
+		transform: translateY(-50%);
+		opacity: 0;
+		animation: ttcounter-spin 0.7s linear infinite;
+		pointer-events: none;
+		transition: opacity 0.2s ease;
+	}
+
+	&.is-loading {
+		.ttcounter-spinner {
+			opacity: 1;
+		}
+	}
+}
+
+@keyframes ttcounter-spin {
+	to {
+		transform: translateY(-50%) rotate(360deg);
+	}
+}
