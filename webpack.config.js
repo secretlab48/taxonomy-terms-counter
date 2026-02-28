@@ -5,6 +5,7 @@ module.exports = {
 	entry: {
 		admin: './src/index.jsx',
 		'taxonomy-terms-counter': './src/taxonomy-terms-counter.jsx',
+		'classic-flat-counts': './src/classic-flat-counts.js',
 	},
 
 	output: {

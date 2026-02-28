@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Taxonomy Terms Counter
  * Description: Show taxonomy term counts in the Gutenberg editor sidebar and manage which taxonomies display counts.
- * Version: 1.0.0
+ * Version: 2.0.0
  * Author: secretlab48
  * License: GPLv2
  * License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -23,6 +23,8 @@ require_once TTCOUNTER_PATH . 'includes/rest-term-counts.php';
 require_once TTCOUNTER_PATH . 'includes/admin-page.php';
 require_once TTCOUNTER_PATH . 'includes/single-post-page.php';
 require_once TTCOUNTER_PATH . 'includes/rest-api.php';
+require_once TTCOUNTER_PATH . 'includes/class-ttcounter-walker-term-checklist.php';
+require_once TTCOUNTER_PATH . 'includes/classic-editor.php';
 
 register_activation_hook( __FILE__, 'ttcounter_set_activation_redirect' );
 

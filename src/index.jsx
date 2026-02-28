@@ -67,7 +67,7 @@ function TtcounterApp() {
 				);
 				setTaxonomies(
 					Object.values( data ).filter(
-						( t ) => t.hierarchical && ! restrictedTaxonomies.includes( t.slug )
+						( t ) => ! restrictedTaxonomies.includes( t.slug )
 					)
 				);
 			}

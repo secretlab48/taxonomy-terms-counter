@@ -1,7 +1,7 @@
 # Taxonomy Terms Counter — Project Context
 
 ## Purpose
-WordPress plugin that shows per-term post counts in the Gutenberg editor sidebar and provides an admin settings page to enable/disable counts per taxonomy and post type.
+WordPress plugin that shows per-term post counts in the editor sidebar for both Gutenberg and Classic Editor, and provides an admin settings page to enable/disable counts per taxonomy and post type.
 
 ## Runtime Flow (High Level)
 1. Admin selects which taxonomies should show counts for each post type.
@@ -22,6 +22,9 @@ WordPress plugin that shows per-term post counts in the Gutenberg editor sidebar
 - `includes/single-post-page.php`
   - Enqueues editor script `assets/build/taxonomy-terms-counter.js`.
   - Passes active taxonomies to JS in `TTCounter.data`.
+- `includes/classic-editor.php`
+  - Adds term counts for Classic Editor.
+  - Enqueues classic flat taxonomy updater and passes counts to JS.
 
 ## JS App (Admin Settings)
 - `src/index.jsx`
@@ -65,3 +68,37 @@ WordPress plugin that shows per-term post counts in the Gutenberg editor sidebar
 ## Notes
 - Term counts are computed server-side with a SQL query per term, respecting on current post_type.
 - Editor script relies on `TTCounter.data` (active taxonomies) and REST nonce.
+
+## Hooks
+### PHP Filters
+- `ttcounter_term_count_taxonomies` — Filter taxonomies list for term counts. Args: `$taxonomies`, `$post_type`, `$request`.
+- `ttcounter_term_count_get_terms_args` — Filter `get_terms()` args. Args: `$args`, `$taxonomy`, `$post_type`.
+- `ttcounter_term_count_value` — Filter count value per term. Args: `$count`, `$term`, `$taxonomy`, `$post_type`.
+- `ttcounter_term_counts_response` — Filter REST response. Args: `$results`, `$post_type`, `$taxonomies`.
+- `ttcounter_sanitized_settings` — Filter sanitized settings before save. Args: `$sanitized_taxs`, `$request`.
+- `ttcounter_classic_hierarchical_label` — Filter classic editor hierarchical label text. Args: `$label`, `$term`, `$taxonomy`, `$post_type`, `$count`.
+- `ttcounter_classic_hierarchical_item_html` — Filter classic editor hierarchical item HTML. Args: `$item_output`, `$term`, `$taxonomy`, `$post_type`, `$count`.
+- `ttcounter_classic_flat_term_label` — Filter classic editor flat term label key. Args: `$label`, `$term`, `$taxonomy`, `$post_type`, `$count`.
+
+### PHP Actions
+- `ttcounter_settings_updated` — Fires after settings are saved. Args: `$sanitized_taxs`, `$request`.
+
+### JS Filters
+- `ttcounter.termCountTaxonomies` — Filter taxonomy list before REST request. Args: `taxonomies`, `postType`.
+- `ttcounter.termCountData` — Filter REST response data before rendering. Args: `data`, `postType`.
+- `ttcounter.restrictedPostTypes` — Filter restricted post types list in settings. Args: `restrictedPostTypes`.
+- `ttcounter.restrictedTaxonomies` — Filter restricted taxonomies list in settings. Args: `restrictedTaxonomies`.
+- `ttcounter.termCountLabel` — Filter sidebar label text. Args: `value`, `{ name, count, label }`.
+- `window.TTCounterClassicFilterLabel` — Filter classic editor flat checklist label text. Args: `{ taxonomy, name, count, label }`.
+
+### JS Actions
+- `ttcounter.sidebarUpdated` — Fires after sidebar counts update. Args: `termsByTax`.
+
+## Changelog
+### 2.0.0
+- Added Classic Editor support for both hierarchical and non-hierarchical taxonomies.
+- Added Classic Editor hooks for hierarchical and flat taxonomies.
+- Added Gutenberg support for non-hierarchical taxonomies.
+
+### 1.0.0
+- Initial release.
