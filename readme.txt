@@ -3,7 +3,7 @@ Contributors: secretlab48
 Donate link: https://www.privat24.ua/send/iqtg5
 Tags: Tags: gutenberg, taxonomy, terms, count, editor, sidebar
 Requires at least: 6.8
-Tested up to: 6.9
+Tested up to: 7.1.4
 Stable tag: 2.0.0
 Requires PHP: 7.4
 License: GPLv2

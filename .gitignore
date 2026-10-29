@@ -18,6 +18,6 @@ yarn-error.log*
 # Env files
 .env
 
-# Composer / npm locks (uncomment if you don't want them tracked)
-# composer.lock
+# Composer / npm locks
+composer.lock
 # package-lock.json
